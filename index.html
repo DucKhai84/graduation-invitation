@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Tốt Nghiệp - Trúc Phương</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfaf9;
+            --primary-color: #6a3952;
+            --text-gray: #7a6c72;
+            --white: #ffffff;
+            --border-color: #e5dada;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            font-size: 0.9rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-gray);
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Layouts */
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .text-content .subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .text-content h1 {
+            font-size: 6.5rem;
+            line-height: 0.85;
+            margin-bottom: 30px;
+            margin-top: 10px;
+            letter-spacing: -2px;
+        }
+
+        .hero-name-highlight {
+            font-style: italic;
+            color: #c46d88;
+            margin-left: 80px;
+            display: inline-block;
+        }
+
+        .text-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .text-content .desc {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            max-width: 90%;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-link {
+            margin-left: 20px;
+            font-style: italic;
+            text-decoration: underline;
+            color: var(--text-gray);
+        }
+
+        /* Polaroids */
+        .polaroid {
+            background: var(--white);
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: rotate(3deg);
+            position: relative;
+            text-align: center;
+        }
+
+        .polaroid .photo-placeholder {
+            background: linear-gradient(135deg, #e3d5e8, #f4e4e9);
+            height: 450px;
+            /* Taller height for a better visual balance */
+            aspect-ratio: 9 / 16;
+            /* 16:9 vertical */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .polaroid .caption {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .tape {
+            position: absolute;
+            width: 80px;
+            height: 25px;
+            background-color: rgba(235, 219, 195, 0.8);
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+        }
+
+        /* Invitation Card Section */
+        .invite-section {
+            background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .invite-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .invite-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(106, 57, 82, 0.2);
+        }
+
+        .invite-card h2 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
+            text-align: center;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: #fdfafc;
+            width: 130px;
+            height: 140px;
+            border-radius: 65px 65px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .countdown-item .number {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-item .label {
+            font-size: 0.55rem;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Audio Section */
+        .audio-section {
+            position: relative;
+            z-index: 1;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .audio-title {
+            font-size: 4.5rem;
+            line-height: 0.95;
+            margin-bottom: 25px;
+            margin-top: 15px;
+            letter-spacing: -1px;
+            font-weight: normal;
+        }
+
+        .vinyl-card {
+            background: var(--white);
+            border-radius: 35px;
+            padding: 50px 70px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(106, 57, 82, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .vinyl {
+            width: 220px;
+            height: 220px;
+            background: repeating-radial-gradient(circle, #5c354a 0, #5c354a 3px, #4a2a3b 4px, #4a2a3b 6px);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            animation: spin 8s linear infinite;
+        }
+
+        .vinyl-center {
+            width: 60px;
+            height: 60px;
+            background: #eacde3;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #6a3952;
+            border: 2px solid #fff;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Memories Section */
+        .memories-photos {
+            position: relative;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .memory-polaroid-1 {
+            position: absolute;
+            transform: rotate(-6deg);
+            z-index: 1;
+            margin-right: 120px;
+            margin-bottom: 40px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .memory-polaroid-2 {
+            position: absolute;
+            transform: rotate(8deg);
+            z-index: 2;
+            margin-left: 100px;
+            margin-top: 60px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .memory-polaroid-1:hover {
+            transform: rotate(-2deg) scale(1.05);
+            z-index: 10;
+        }
+        .memory-polaroid-2:hover {
+            transform: rotate(3deg) scale(1.05);
+            z-index: 10;
+        }
+        .memories-photos .photo-placeholder {
+            width: 220px; 
+            height: 280px;
+            background: linear-gradient(135deg, #e3d5e8, #f4e4e9);
+        }
+        .memories-photos .caption {
+            bottom: 15px; 
+            font-size: 0.9rem; 
+            color: var(--primary-color);
+        }
+
+        /* Details Section */
+        .details-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .detail-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .detail-card.full-width {
+            grid-column: span 2;
+            justify-content: space-between;
+        }
+
+        .detail-card .icon {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        /* Floating Audio Button */
+        .floating-audio {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(106, 57, 82, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        .floating-audio .icon-circle {
+            width: 30px;
+            height: 30px;
+            background: #fdfaf9;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .text-content h1 {
+                font-size: 4rem;
+                letter-spacing: -1px;
+                line-height: 0.9;
+            }
+
+            .hero-name-highlight {
+                margin-left: 40px;
+            }
+
+            .text-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .text-content .desc {
+                max-width: 100%;
+                margin: 0 auto 30px;
+            }
+
+            .btn-link {
+                display: block;
+                margin: 15px 0 0 0;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            /* Hide menu on mobile for simplicity */
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-card.full-width {
+                grid-column: span 1;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .polaroid {
+                transform: rotate(0);
+            }
+
+            .countdown-item {
+                width: 90px;
+                height: 110px;
+                border-radius: 45px 45px 15px 15px;
+            }
+
+            .countdown-item .number {
+                font-size: 2.2rem;
+            }
+
+            .audio-title {
+                font-size: 3rem;
+            }
+
+            .vinyl-card {
+                padding: 40px 30px;
+            }
+
+            .memories-photos {
+                height: auto;
+                flex-direction: column;
+                gap: 40px;
+                margin-top: 20px;
+            }
+            .memory-polaroid-1, .memory-polaroid-2 {
+                position: relative;
+                margin: 0;
+                transform: rotate(0);
+            }
+            .memory-polaroid-1:hover, .memory-polaroid-2:hover {
+                transform: scale(1.02);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <nav>
+        <div class="logo">TP</div>
+        <ul>
+            <li><a href="#">Lời mời</a></li>
+            <li><a href="#">Giai điệu</a></li>
+            <li><a href="#">Thông tin</a></li>
+            <li><a href="#">Lời nhắn</a></li>
+        </ul>
+        <div><a href="#">Chia sẻ ↗</a></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container section-grid" style="position: relative; z-index: 1;">
+        <!-- Soft Background Glows -->
+        <div
+            style="position: absolute; top: -20%; left: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(244,228,233,0.8) 0%, rgba(253,250,249,0) 70%); z-index: -1; border-radius: 50%; pointer-events: none;">
+        </div>
+        <div
+            style="position: absolute; bottom: -30%; right: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(234,205,227,0.5) 0%, rgba(253,250,249,0) 70%); z-index: -1; border-radius: 50%; pointer-events: none;">
+        </div>
+
+        <!-- Background Decorations -->
+        <div style="position: absolute; top: 15%; left: 45%; color: #d6b3c1; font-size: 1.2rem; pointer-events: none;">✦
+        </div>
+        <div
+            style="position: absolute; top: 25%; right: 5%; color: #d6b3c1; font-size: 1.5rem; transform: rotate(15deg); pointer-events: none;">
+            ✧</div>
+        <div
+            style="position: absolute; bottom: 10%; left: 45%; color: #d6b3c1; font-size: 0.8rem; pointer-events: none;">
+            ✧</div>
+        <div
+            style="position: absolute; bottom: -5%; right: 35%; color: #d6b3c1; font-size: 1rem; pointer-events: none;">
+            ✦</div>
+
+        <div class="text-content">
+            <div class="subtitle">GRADUATION INVITATION • 2026</div>
+            <h1 style="position: relative;">
+                Trúc<br>
+                <span class="hero-name-highlight">Phương</span>
+            </h1>
+            <div class="subtitle" style="color: var(--gold); margin-top: 30px;">CỬ NHÂN KINH DOANH QUỐC TẾ</div>
+            <p class="desc">Sau bốn năm góp nhặt những bài học, những lần cố gắng và thật nhiều kỷ niệm, mình sắp chạm
+                đến một cột mốc rất đẹp.</p>
+            <div>
+                <button class="btn">Xem lời mời ↓</button>
+                <a href="#" class="btn-link">Gửi thiệp cho một người bạn</a>
+            </div>
+        </div>
+        <div class="polaroid-wrapper" style="display: flex; justify-content: center; position: relative;">
+
+            <!-- Bottom Left Decoration for Polaroid -->
+            <div
+                style="position: absolute; bottom: -10px; left: -30px; z-index: 10; display: flex; align-items: center; transform: rotate(-10deg); pointer-events: none;">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8c5a71" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    style="margin-right: -15px; margin-bottom: 20px; transform: rotate(40deg);">
+                    <polyline points="2 12 7 7 12 12 17 7 22 12"></polyline>
+                </svg>
+                <span style="font-size: 3rem; color: transparent; -webkit-text-stroke: 2px #c46d88;">✿</span>
+            </div>
+
+            <div class="polaroid" style="position: relative; z-index: 5; padding: 15px 15px 40px 15px; width: 100%">
+                <div class="tape" style="width: 130px; top: -25px; left: -20px; transform: rotate(-30deg);"></div>
+                <div class="tape"
+                    style="width: 110px; top: auto; left: auto; bottom: 15px; right: -35px; transform: rotate(40deg);">
+                </div>
+                <div class="photo-placeholder"
+                    style="width: 100%; background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(234,205,227,0.8) 100%);">
+                    <span style="font-size: 2.5rem; color: transparent; -webkit-text-stroke: 2px #6a3952;">✿</span>
+                    <h3 class="serif-font" style="margin-top: 15px; font-weight: normal;">Ảnh tốt nghiệp</h3>
+                    <p style="font-size: 0.65rem; color: var(--text-gray); margin-top: 5px; letter-spacing: 1px;">SẼ
+                        ĐƯỢC CẬP NHẬT TẠI ĐÂY</p>
+                </div>
+                <div class="caption" style="color: #c46d88;">a dream in bloom ✦</div>
+            </div>
+        </div>
+    </section>
+
+    <div
+        style="text-align: center; margin-top: 60px; margin-bottom: 20px; font-size: 0.6rem; color: var(--text-gray); letter-spacing: 2px; text-transform: uppercase;">
+        Cuộn xuống để cùng mình đếm ngược
+    </div>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div
+            style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: #b36b85; margin-bottom: 10px;">
+            Save the date</div>
+        <h2 class="serif-font"
+            style="font-size: 3rem; color: var(--primary-color); margin-top: 0; margin-bottom: 50px; font-weight: normal; letter-spacing: 1px;">
+            Một ngày thật đẹp đang đến gần</h2>
+
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span class="number serif-font" id="days">28</span>
+                <span class="label">NGÀY</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number serif-font" id="hours">09</span>
+                <span class="label">GIỜ</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number serif-font" id="minutes">50</span>
+                <span class="label">PHÚT</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number serif-font" id="seconds">07</span>
+                <span class="label">GIÂY</span>
+            </div>
+        </div>
+
+        <div
+            style="font-size: 0.65rem; color: var(--text-gray); margin-top: 50px; letter-spacing: 2px; text-transform: uppercase;">
+            NGÀY DỰ KIẾN - THÔNG TIN CHÍNH THỨC SẼ ĐƯỢC CẬP NHẬT
+        </div>
+    </section>
+
+    <!-- Audio Section -->
+    <section class="container section-grid audio-section">
+        <!-- Soft Background Glows -->
+        <div
+            style="position: absolute; top: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,228,233,0.7) 0%, rgba(253,250,249,0) 70%); z-index: -1; border-radius: 50%; pointer-events: none;">
+        </div>
+        <div
+            style="position: absolute; bottom: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(234,205,227,0.5) 0%, rgba(253,250,249,0) 70%); z-index: -1; border-radius: 50%; pointer-events: none;">
+        </div>
+
+        <!-- Background Decorations -->
+        <div style="position: absolute; top: 10%; left: 5%; color: #d6b3c1; font-size: 1.2rem; pointer-events: none;">✦
+        </div>
+        <div
+            style="position: absolute; bottom: 10%; right: 5%; color: #d6b3c1; font-size: 1.5rem; transform: rotate(15deg); pointer-events: none;">
+            ✧</div>
+
+        <div class="text-content">
+            <div class="subtitle" style="color: #b36b85;">A SONG FOR THIS MOMENT</div>
+            <h2 class="serif-font audio-title">Mời bạn nghe<br>một giai điệu<br>mình rất yêu<br>thích</h2>
+            <p class="desc" style="max-width: 80%;">Một bài hát nhỏ cho ngày thật đặc biệt — hãy bật nhạc rồi tiếp tục
+                xem thiệp cùng mình nhé.</p>
+            <button class="btn"
+                style="border-radius: 30px; padding: 12px 30px; background-color: #794a62; font-size: 0.8rem; letter-spacing: 1px;"><span
+                    style="font-size: 0.6rem; margin-right: 5px;">▶</span> Phát bài hát</button>
+        </div>
+        <div class="vinyl-wrapper" style="display: flex; justify-content: center; position: relative;">
+            <div class="vinyl-card">
+                <!-- Floating Notes -->
+                <div
+                    style="position: absolute; top: 50px; right: 50px; color: #c46d88; font-size: 1rem; transform: rotate(15deg);">
+                    ♪</div>
+                <div
+                    style="position: absolute; bottom: 120px; left: 50px; color: #c46d88; font-size: 1.2rem; transform: rotate(-10deg);">
+                    ♫</div>
+
+                <div class="vinyl">
+                    <div class="vinyl-center">TP</div>
+                </div>
+                <div style="margin-top: 35px;">
+                    <div class="subtitle"
+                        style="font-size: 0.6rem; color: #c46d88; letter-spacing: 3px; font-weight: 500;">NOW PLAYING
+                    </div>
+                    <h3 class="serif-font"
+                        style="font-size: 1.3rem; margin-top: 5px; font-weight: normal; color: var(--primary-color);">22
+                        — Taylor Swift</h3>
+                    <a href="#"
+                        style="font-size: 0.65rem; color: var(--text-gray); margin-top: 15px; display: inline-block; border-bottom: 1px solid #e5dada; padding-bottom: 2px;">Mở
+                        trên YouTube ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Card Section -->
+    <section class="invite-section">
+        <div class="invite-card">
+            <div class="subtitle" style="color: var(--primary-color);">TRÂN TRỌNG KÍNH MỜI</div>
+            <h2 class="serif-font">Bạn đến chung vui<br>trong ngày tốt nghiệp<br>của mình</h2>
+            <div style="margin: 20px 0; color: var(--primary-color);">— 🌸 —</div>
+            <p style="color: var(--text-gray); font-size: 0.9rem;">Sự hiện diện của bạn sẽ khiến cột mốc này trở nên
+                trọn vẹn và đáng nhớ hơn rất nhiều. Hãy đến, chụp cùng mình vài tấm ảnh và lưu lại một ngày thật rực rỡ
+                nhé!</p>
+            <p class="serif-font" style="margin-top: 20px; font-style: italic; font-size: 1.2rem; color: #a9758d;">—
+                Trúc Phương</p>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="container details-section">
+        <div class="subtitle">THE DETAILS</div>
+        <h2 class="serif-font" style="font-size: 3rem; margin-top: 10px;">Hẹn gặp bạn tại</h2>
+
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="icon">30</div>
+                <div>
+                    <div class="subtitle" style="color: var(--primary-color); font-size: 0.6rem;">CHỦ NHẬT • THÁNG 08
+                    </div>
+                    <h3 class="serif-font" style="font-size: 1.2rem;">Ngày 30.08.2026</h3>
+                    <p style="font-size: 0.75rem; color: var(--text-gray); margin-top: 5px;">Thời gian dự kiến</p>
+                </div>
+            </div>
+            <div class="detail-card">
+                <div class="icon" style="font-size: 2rem;">🕒</div>
+                <div>
+                    <div class="subtitle" style="color: var(--primary-color); font-size: 0.6rem;">THỜI GIAN</div>
+                    <h3 class="serif-font" style="font-size: 1.2rem;">08:00 sáng</h3>
+                    <p style="font-size: 0.75rem; color: var(--text-gray); margin-top: 5px;">Mời bạn đến sớm 15 phút để
+                        mình cùng chụp ảnh</p>
+                </div>
+            </div>
+            <div class="detail-card full-width">
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div class="icon" style="font-size: 1.5rem;">⌖</div>
+                    <div>
+                        <div class="subtitle" style="color: var(--primary-color); font-size: 0.6rem;">ĐỊA ĐIỂM DỰ KIẾN
+                        </div>
+                        <h3 class="serif-font" style="font-size: 1.3rem;">Trường Đại học Tân Tạo</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-gray); margin-top: 5px;">Địa chỉ và sảnh tổ chức
+                            sẽ được cập nhật sau</p>
+                    </div>
+                </div>
+                <button
+                    style="background: transparent; border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; font-family: inherit; font-size: 0.8rem; cursor: pointer; color: var(--text-gray);">Xem
+                    bản đồ ↗</button>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="#"
+                style="font-size: 0.8rem; color: var(--text-gray); border-bottom: 1px solid var(--text-gray); padding-bottom: 3px;">+
+                Thêm ngày dự kiến vào lịch</a>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section style="min-height: 60vh; background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2); position: relative; padding: 60px 0; overflow: hidden;">
+        <!-- Soft Background Glows -->
+        <div style="position: absolute; top: 10%; left: 30%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,228,233,0.5) 0%, rgba(253,250,249,0) 70%); z-index: 1; border-radius: 50%; pointer-events: none;"></div>
+
+        <div class="container section-grid" style="position: relative; z-index: 2;">
+            <div class="text-content">
+                <h3 class="serif-font" style="font-style: italic; color: #b36b85; font-size: 1.2rem; margin-bottom: 10px;">
+                    Dear my favorite people,</h3>
+                <h2 class="serif-font" style="font-size: 4rem; line-height: 1; margin-bottom: 20px;">Thanh xuân sẽ<br>đẹp hơn khi có<br>bạn trong khung<br>hình.</h2>
+                <p class="desc">Cảm ơn bạn vì đã xuất hiện trong một phần hành trình của mình — dù là một đoạn thật dài hay
+                    chỉ một khoảnh khắc rất nhỏ. Mình mong ngày hôm ấy sẽ có bạn ở đó, cùng cười, cùng ôm và cùng lưu giữ ký
+                    ức này.</p>
+                <button class="btn" style="background-color: #f4e4e9; color: var(--primary-color); font-weight: 500; border: 1px solid #e3d5e8;">Chia sẻ thiệp ♡</button>
+            </div>
+            <div class="memories-photos">
+                <!-- Polaroid 1 -->
+                <div class="polaroid memory-polaroid-1">
+                    <div class="tape" style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg);"></div>
+                    <div class="photo-placeholder"></div>
+                    <div class="caption">your photo</div>
+                </div>
+                <!-- Polaroid 2 -->
+                <div class="polaroid memory-polaroid-2">
+                    <div class="tape" style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(3deg);"></div>
+                    <div class="photo-placeholder"></div>
+                    <div class="caption">our memory</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="font-size: 1.5rem; margin-bottom: 15px;">✦</div>
+        <h3>Made with love for Trúc Phương's graduation</h3>
+        <p style="font-size: 0.7rem; letter-spacing: 2px; opacity: 0.7; margin-top: 15px;">CLASS OF 2026</p>
+    </footer>
+
+    <!-- Floating Audio Button -->
+    <div class="floating-audio">
+        <div class="icon-circle">🎵</div>
+        <span style="font-size: 0.9rem;">Bật nhạc</span>
+    </div>
+
+    <!-- Script for Countdown -->
+    <script>
+        const countDownDate = new Date("Aug 30, 2026 08:00:00").getTime();
+
+        const x = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+    </script>
+</body>
+
+</html>

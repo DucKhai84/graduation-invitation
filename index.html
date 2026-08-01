@@ -26,6 +26,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
@@ -342,6 +346,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .memory-polaroid-1 {
             position: absolute;
             transform: rotate(-6deg);
@@ -350,6 +355,7 @@
             margin-bottom: 40px;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .memory-polaroid-2 {
             position: absolute;
             transform: rotate(8deg);
@@ -358,22 +364,26 @@
             margin-top: 60px;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .memory-polaroid-1:hover {
             transform: rotate(-2deg) scale(1.05);
             z-index: 10;
         }
+
         .memory-polaroid-2:hover {
             transform: rotate(3deg) scale(1.05);
             z-index: 10;
         }
+
         .memories-photos .photo-placeholder {
-            width: 220px; 
+            width: 220px;
             height: 280px;
             background: linear-gradient(135deg, #e3d5e8, #f4e4e9);
         }
+
         .memories-photos .caption {
-            bottom: 15px; 
-            font-size: 0.9rem; 
+            bottom: 15px;
+            font-size: 0.9rem;
             color: var(--primary-color);
         }
 
@@ -458,6 +468,49 @@
         }
 
         /* Responsive Design */
+        /* Tablet & Laptop (1024px and below) */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 40px 5%;
+            }
+
+            .section-grid {
+                gap: 30px;
+            }
+
+            .text-content h1 {
+                font-size: 5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-name-highlight {
+                margin-left: 50px;
+            }
+
+            .text-content h2 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .memory-polaroid-1 {
+                margin-right: 50px;
+            }
+
+            .memory-polaroid-2 {
+                margin-left: 50px;
+                margin-top: 30px;
+            }
+
+            .vinyl {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* Mobile (768px and below) */
         @media (max-width: 768px) {
             .section-grid {
                 grid-template-columns: 1fr;
@@ -467,16 +520,11 @@
 
             .text-content h1 {
                 font-size: 4rem;
-                letter-spacing: -1px;
                 line-height: 0.9;
             }
 
             .hero-name-highlight {
-                margin-left: 40px;
-            }
-
-            .text-content h2 {
-                font-size: 2.2rem;
+                margin-left: 20px;
             }
 
             .text-content .desc {
@@ -489,11 +537,20 @@
                 margin: 15px 0 0 0;
             }
 
-            nav ul {
-                display: none;
+            /* Navigation */
+            nav {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            /* Hide menu on mobile for simplicity */
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0;
+            }
+
+            /* Details */
             .details-grid {
                 grid-template-columns: 1fr;
             }
@@ -504,10 +561,7 @@
                 text-align: center;
             }
 
-            .polaroid {
-                transform: rotate(0);
-            }
-
+            /* Countdown */
             .countdown-item {
                 width: 90px;
                 height: 110px;
@@ -518,27 +572,69 @@
                 font-size: 2.2rem;
             }
 
+            /* Audio Section */
             .audio-title {
                 font-size: 3rem;
             }
 
             .vinyl-card {
-                padding: 40px 30px;
+                padding: 40px 20px;
             }
 
+            .vinyl {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Memories Section */
             .memories-photos {
                 height: auto;
                 flex-direction: column;
                 gap: 40px;
                 margin-top: 20px;
             }
-            .memory-polaroid-1, .memory-polaroid-2 {
+
+            .memory-polaroid-1,
+            .memory-polaroid-2 {
                 position: relative;
                 margin: 0;
                 transform: rotate(0);
             }
-            .memory-polaroid-1:hover, .memory-polaroid-2:hover {
+
+            .memory-polaroid-1:hover,
+            .memory-polaroid-2:hover {
                 transform: scale(1.02);
+            }
+
+            .polaroid {
+                transform: rotate(0);
+                margin: 0 auto;
+            }
+        }
+
+        /* Small Mobile (480px and below) */
+        @media (max-width: 480px) {
+            .text-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-name-highlight {
+                margin-left: 10px;
+            }
+
+            .countdown-item {
+                width: 70px;
+                height: 90px;
+                border-radius: 35px 35px 10px 10px;
+            }
+
+            .countdown-item .number {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 10px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -550,10 +646,10 @@
     <nav>
         <div class="logo">TP</div>
         <ul>
-            <li><a href="#">Lời mời</a></li>
-            <li><a href="#">Giai điệu</a></li>
-            <li><a href="#">Thông tin</a></li>
-            <li><a href="#">Lời nhắn</a></li>
+            <li><a href="#invitation">Lời mời</a></li>
+            <li><a href="#melody">Giai điệu</a></li>
+            <li><a href="#details">Thông tin</a></li>
+            <li><a href="#memories">Lời nhắn</a></li>
         </ul>
         <div><a href="#">Chia sẻ ↗</a></div>
     </nav>
@@ -591,7 +687,7 @@
             <p class="desc">Sau bốn năm góp nhặt những bài học, những lần cố gắng và thật nhiều kỷ niệm, mình sắp chạm
                 đến một cột mốc rất đẹp.</p>
             <div>
-                <button class="btn">Xem lời mời ↓</button>
+                <a href="#invitation" class="btn" style="text-decoration: none; display: inline-block;">Xem lời mời ↓</a>
                 <a href="#" class="btn-link">Gửi thiệp cho một người bạn</a>
             </div>
         </div>
@@ -665,7 +761,7 @@
     </section>
 
     <!-- Audio Section -->
-    <section class="container section-grid audio-section">
+    <section id="melody" class="container section-grid audio-section">
         <!-- Soft Background Glows -->
         <div
             style="position: absolute; top: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,228,233,0.7) 0%, rgba(253,250,249,0) 70%); z-index: -1; border-radius: 50%; pointer-events: none;">
@@ -686,9 +782,10 @@
             <h2 class="serif-font audio-title">Mời bạn nghe<br>một giai điệu<br>mình rất yêu<br>thích</h2>
             <p class="desc" style="max-width: 80%;">Một bài hát nhỏ cho ngày thật đặc biệt — hãy bật nhạc rồi tiếp tục
                 xem thiệp cùng mình nhé.</p>
-            <button class="btn"
-                style="border-radius: 30px; padding: 12px 30px; background-color: #794a62; font-size: 0.8rem; letter-spacing: 1px;"><span
-                    style="font-size: 0.6rem; margin-right: 5px;">▶</span> Phát bài hát</button>
+            <button class="btn" id="play-btn-1"
+                style="border-radius: 30px; padding: 12px 30px; background-color: #794a62; font-size: 0.8rem; letter-spacing: 1px; cursor: pointer;"><span
+                    style="font-size: 0.6rem; margin-right: 5px;" id="play-icon-1">▶</span> <span id="play-text-1">Phát
+                    bài hát</span></button>
         </div>
         <div class="vinyl-wrapper" style="display: flex; justify-content: center; position: relative;">
             <div class="vinyl-card">
@@ -719,7 +816,7 @@
     </section>
 
     <!-- Invitation Card Section -->
-    <section class="invite-section">
+    <section id="invitation" class="invite-section">
         <div class="invite-card">
             <div class="subtitle" style="color: var(--primary-color);">TRÂN TRỌNG KÍNH MỜI</div>
             <h2 class="serif-font">Bạn đến chung vui<br>trong ngày tốt nghiệp<br>của mình</h2>
@@ -733,7 +830,7 @@
     </section>
 
     <!-- Details Section -->
-    <section class="container details-section">
+    <section id="details" class="container details-section">
         <div class="subtitle">THE DETAILS</div>
         <h2 class="serif-font" style="font-size: 3rem; margin-top: 10px;">Hẹn gặp bạn tại</h2>
 
@@ -772,38 +869,49 @@
                     bản đồ ↗</button>
             </div>
         </div>
-        <div style="margin-top: 30px;">
+        <!-- <div style="margin-top: 30px;">
             <a href="#"
                 style="font-size: 0.8rem; color: var(--text-gray); border-bottom: 1px solid var(--text-gray); padding-bottom: 3px;">+
                 Thêm ngày dự kiến vào lịch</a>
-        </div>
+        </div> -->
     </section>
 
     <!-- Memories Section -->
-    <section style="min-height: 60vh; background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2); position: relative; padding: 60px 0; overflow: hidden;">
+    <section id="memories"
+        style="min-height: 60vh; background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2); position: relative; padding: 60px 0; overflow: hidden;">
         <!-- Soft Background Glows -->
-        <div style="position: absolute; top: 10%; left: 30%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,228,233,0.5) 0%, rgba(253,250,249,0) 70%); z-index: 1; border-radius: 50%; pointer-events: none;"></div>
+        <div
+            style="position: absolute; top: 10%; left: 30%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,228,233,0.5) 0%, rgba(253,250,249,0) 70%); z-index: 1; border-radius: 50%; pointer-events: none;">
+        </div>
 
         <div class="container section-grid" style="position: relative; z-index: 2;">
             <div class="text-content">
-                <h3 class="serif-font" style="font-style: italic; color: #b36b85; font-size: 1.2rem; margin-bottom: 10px;">
+                <h3 class="serif-font"
+                    style="font-style: italic; color: #b36b85; font-size: 1.2rem; margin-bottom: 10px;">
                     Dear my favorite people,</h3>
-                <h2 class="serif-font" style="font-size: 4rem; line-height: 1; margin-bottom: 20px;">Thanh xuân sẽ<br>đẹp hơn khi có<br>bạn trong khung<br>hình.</h2>
-                <p class="desc">Cảm ơn bạn vì đã xuất hiện trong một phần hành trình của mình — dù là một đoạn thật dài hay
-                    chỉ một khoảnh khắc rất nhỏ. Mình mong ngày hôm ấy sẽ có bạn ở đó, cùng cười, cùng ôm và cùng lưu giữ ký
+                <h2 class="serif-font" style="font-size: 4rem; line-height: 1; margin-bottom: 20px;">Thanh xuân
+                    sẽ<br>đẹp hơn khi có<br>bạn trong khung<br>hình.</h2>
+                <p class="desc">Cảm ơn bạn vì đã xuất hiện trong một phần hành trình của mình — dù là một đoạn thật dài
+                    hay
+                    chỉ một khoảnh khắc rất nhỏ. Mình mong ngày hôm ấy sẽ có bạn ở đó, cùng cười, cùng ôm và cùng lưu
+                    giữ ký
                     ức này.</p>
-                <button class="btn" style="background-color: #f4e4e9; color: var(--primary-color); font-weight: 500; border: 1px solid #e3d5e8;">Chia sẻ thiệp ♡</button>
+                <button class="btn"
+                    style="background-color: #f4e4e9; color: var(--primary-color); font-weight: 500; border: 1px solid #e3d5e8;">Chia
+                    sẻ thiệp ♡</button>
             </div>
             <div class="memories-photos">
                 <!-- Polaroid 1 -->
                 <div class="polaroid memory-polaroid-1">
-                    <div class="tape" style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg);"></div>
+                    <div class="tape"
+                        style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg);"></div>
                     <div class="photo-placeholder"></div>
                     <div class="caption">your photo</div>
                 </div>
                 <!-- Polaroid 2 -->
                 <div class="polaroid memory-polaroid-2">
-                    <div class="tape" style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(3deg);"></div>
+                    <div class="tape"
+                        style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(3deg);"></div>
                     <div class="photo-placeholder"></div>
                     <div class="caption">our memory</div>
                 </div>
@@ -819,10 +927,13 @@
     </footer>
 
     <!-- Floating Audio Button -->
-    <div class="floating-audio">
-        <div class="icon-circle">🎵</div>
-        <span style="font-size: 0.9rem;">Bật nhạc</span>
+    <div class="floating-audio" id="floating-music-btn" style="cursor: pointer;">
+        <div class="icon-circle" id="floating-music-icon">🎵</div>
+        <span style="font-size: 0.9rem;" id="floating-music-text">Bật nhạc</span>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="bg-music" src="./22-taylor-swift.mp3" loop preload="auto"></audio>
 
     <!-- Script for Countdown -->
     <script>
@@ -851,6 +962,71 @@
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         }, 1000);
+    </script>
+
+    <!-- Script for Audio Toggle -->
+    <script>
+        const audio = document.getElementById("bg-music");
+        const playBtn1 = document.getElementById("play-btn-1");
+        const playIcon1 = document.getElementById("play-icon-1");
+        const playText1 = document.getElementById("play-text-1");
+
+        const floatingBtn = document.getElementById("floating-music-btn");
+        const floatingIcon = document.getElementById("floating-music-icon");
+        const floatingText = document.getElementById("floating-music-text");
+        const vinyl = document.querySelector('.vinyl');
+
+        let isPlaying = false;
+        let hasStarted = false; // Theo dõi xem nhạc đã được bật lần nào chưa
+
+        // Cài đặt thời gian bắt đầu điệp khúc (tính bằng giây). 
+        // 64 giây = 1 phút 04 giây. Bạn có thể thay đổi số này cho khớp với file mp3 của bạn.
+        const chorusStartTime = 64;
+
+        // Start vinyl as paused until music plays
+        if (vinyl) vinyl.style.animationPlayState = 'paused';
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+
+                // Update buttons to "Play" state
+                if (playIcon1) playIcon1.innerText = "▶";
+                if (playText1) playText1.innerText = "Phát bài hát";
+
+                if (floatingIcon) floatingIcon.innerText = "🎵";
+                if (floatingText) floatingText.innerText = "Bật nhạc";
+
+                // Stop vinyl spin
+                if (vinyl) vinyl.style.animationPlayState = 'paused';
+            } else {
+                // Nếu là lần đầu tiên bấm play, nhảy đến đoạn điệp khúc
+                if (!hasStarted) {
+                    audio.currentTime = chorusStartTime;
+                    hasStarted = true;
+                }
+
+                audio.play().then(() => {
+                    isPlaying = true;
+
+                    // Update buttons to "Pause" state
+                    if (playIcon1) playIcon1.innerText = "⏸";
+                    if (playText1) playText1.innerText = "Tạm dừng";
+
+                    if (floatingIcon) floatingIcon.innerText = "⏸";
+                    if (floatingText) floatingText.innerText = "Tắt nhạc";
+
+                    // Start vinyl spin
+                    if (vinyl) vinyl.style.animationPlayState = 'running';
+                }).catch(error => {
+                    alert("Không tìm thấy file nhạc! Bạn vui lòng tải một file nhạc mp3, đổi tên thành '22-taylor-swift.mp3' và để chung thư mục với file index.html nhé.");
+                });
+            }
+        }
+
+        if (playBtn1) playBtn1.addEventListener("click", toggleMusic);
+        if (floatingBtn) floatingBtn.addEventListener("click", toggleMusic);
     </script>
 </body>
 

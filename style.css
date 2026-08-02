@@ -1,0 +1,639 @@
+        :root {
+            --bg-color: #fdfaf9;
+            --primary-color: #6a3952;
+            --text-gray: #7a6c72;
+            --white: #ffffff;
+            --border-color: #e5dada;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            font-size: 0.9rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-gray);
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Layouts */
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .text-content .subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .text-content h1 {
+            font-size: 6.5rem;
+            line-height: 0.85;
+            margin-bottom: 30px;
+            margin-top: 10px;
+            letter-spacing: -2px;
+        }
+
+        .hero-name-highlight {
+            font-style: italic;
+            color: #c46d88;
+            margin-left: 80px;
+            display: inline-block;
+        }
+
+        .text-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .text-content .desc {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            max-width: 90%;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-link {
+            margin-left: 20px;
+            font-style: italic;
+            text-decoration: underline;
+            color: var(--text-gray);
+        }
+
+        /* Polaroids */
+        .polaroid {
+            background: var(--white);
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: rotate(3deg);
+            position: relative;
+            text-align: center;
+        }
+
+        .polaroid .photo-placeholder {
+            background: linear-gradient(135deg, #e3d5e8, #f4e4e9);
+            height: 450px;
+            /* Taller height for a better visual balance */
+            aspect-ratio: 9 / 16;
+            /* 16:9 vertical */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .polaroid .caption {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .tape {
+            position: absolute;
+            width: 80px;
+            height: 25px;
+            background-color: rgba(235, 219, 195, 0.8);
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+        }
+
+        /* Invitation Card Section */
+        .invite-section {
+            background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .invite-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .invite-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(106, 57, 82, 0.2);
+        }
+
+        .invite-card h2 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
+            text-align: center;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: #fdfafc;
+            width: 130px;
+            height: 140px;
+            border-radius: 65px 65px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .countdown-item .number {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-item .label {
+            font-size: 0.55rem;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Audio Section */
+        .audio-section {
+            position: relative;
+            z-index: 1;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .audio-title {
+            font-size: 4.5rem;
+            line-height: 0.95;
+            margin-bottom: 25px;
+            margin-top: 15px;
+            letter-spacing: -1px;
+            font-weight: normal;
+        }
+
+        .vinyl-card {
+            width: 100%;
+            background: var(--white);
+            border-radius: 35px;
+            padding: 50px 70px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(106, 57, 82, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .vinyl {
+            width: 220px;
+            height: 220px;
+            background: repeating-radial-gradient(circle, #5c354a 0, #5c354a 3px, #4a2a3b 4px, #4a2a3b 6px);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            animation: spin 8s linear infinite;
+        }
+
+        .vinyl-center {
+            width: 60px;
+            height: 60px;
+            background: #eacde3;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #6a3952;
+            border: 2px solid #fff;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Memories Section */
+        .memories-photos {
+            position: relative;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .memory-polaroid-1 {
+            position: absolute;
+            transform: rotate(-6deg);
+            z-index: 1;
+            margin-right: 120px;
+            margin-bottom: 40px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .memory-polaroid-2 {
+            position: absolute;
+            transform: rotate(8deg);
+            z-index: 2;
+            margin-left: 100px;
+            margin-top: 60px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .memory-polaroid-1:hover {
+            transform: rotate(-2deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .memory-polaroid-2:hover {
+            transform: rotate(3deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .memories-photos .photo-placeholder {
+            width: 220px;
+            height: 280px;
+            background: linear-gradient(135deg, #e3d5e8, #f4e4e9);
+        }
+
+        .memories-photos .caption {
+            bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        /* Details Section */
+        .details-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .detail-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .detail-card.full-width {
+            grid-column: span 2;
+            justify-content: space-between;
+        }
+
+        .detail-card .icon {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        /* Floating Audio Button */
+        .floating-audio {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(106, 57, 82, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        .floating-audio .icon-circle {
+            width: 30px;
+            height: 30px;
+            background: #fdfaf9;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        /* Tablet & Laptop (1024px and below) */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 40px 5%;
+            }
+
+            .section-grid {
+                gap: 30px;
+            }
+
+            .text-content h1 {
+                font-size: 5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-name-highlight {
+                margin-left: 50px;
+            }
+
+            .text-content h2 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .memory-polaroid-1 {
+                margin-right: 50px;
+            }
+
+            .memory-polaroid-2 {
+                margin-left: 50px;
+                margin-top: 30px;
+            }
+
+            .vinyl {
+                width: 180px;
+                height: 180px;
+            }
+
+            .floating-audio {
+                bottom: 20px;
+                right: 20px;
+                padding: 8px 16px;
+            }
+        }
+
+        /* Mobile (768px and below) */
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .text-content h1 {
+                font-size: 4rem;
+                line-height: 0.9;
+            }
+
+            .hero-name-highlight {
+                margin-left: 20px;
+            }
+
+            .text-content .desc {
+                max-width: 100%;
+                margin: 0 auto 30px;
+            }
+
+            .btn-link {
+                display: block;
+                margin: 15px 0 0 0;
+            }
+
+
+
+            /* Details */
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-card.full-width {
+                grid-column: span 1;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* Countdown */
+            .countdown-item {
+                width: 90px;
+                height: 110px;
+                border-radius: 45px 45px 15px 15px;
+            }
+
+            .countdown-item .number {
+                font-size: 2.2rem;
+            }
+
+            /* Audio Section */
+            .audio-title {
+                font-size: 3rem;
+            }
+
+            .vinyl-card {
+                padding: 40px 20px;
+            }
+
+            .vinyl {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Memories Section */
+            .memories-photos {
+                height: auto;
+                flex-direction: column;
+                gap: 40px;
+                margin-top: 20px;
+            }
+
+            .memory-polaroid-1,
+            .memory-polaroid-2 {
+                position: relative;
+                margin: 0;
+                transform: rotate(0);
+            }
+
+            .memory-polaroid-1:hover,
+            .memory-polaroid-2:hover {
+                transform: scale(1.02);
+            }
+
+            .polaroid {
+                transform: rotate(0);
+                margin: 0 auto;
+            }
+
+            .floating-audio {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                justify-content: center;
+            }
+
+            .floating-audio span {
+                display: none;
+            }
+        }
+
+        /* Small Mobile (480px and below) */
+        @media (max-width: 480px) {
+            .text-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-name-highlight {
+                margin-left: 10px;
+            }
+
+            .countdown-item {
+                width: 70px;
+                height: 90px;
+                border-radius: 35px 35px 10px 10px;
+            }
+
+            .countdown-item .number {
+                font-size: 1.5rem;
+            }
+
+
+        }

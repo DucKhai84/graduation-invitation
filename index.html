@@ -52,7 +52,7 @@
 
         <div class="text-content">
             <div class="subtitle">GRADUATION INVITATION • 2026</div>
-            <h1 style="position: relative;">
+            <h1 style="position: relative; margin-top: 20px;">
                 Trúc<br>
                 <span class="hero-name-highlight">Phương</span>
             </h1>
@@ -60,7 +60,8 @@
             <p class="desc">Sau bốn năm góp nhặt những bài học, những lần cố gắng và thật nhiều kỷ niệm, mình sắp chạm
                 đến một cột mốc rất đẹp.</p>
             <div>
-                <a href="#invitation" class="btn" style="text-decoration: none; display: inline-block;">Xem lời mời
+                <a href="#invitation" class="btn hide-on-mobile"
+                    style="text-decoration: none; display: inline-block;">Xem lời mời
                     ↓</a>
                 <!-- <a href="#" class="btn-link">Gửi thiệp cho một người bạn</a> -->
             </div>
@@ -79,9 +80,9 @@
             </div>
 
             <div class="polaroid" style="position: relative; z-index: 5; padding: 15px 15px 40px 15px; width: 100%">
-                <div class="tape" style="width: 130px; top: -25px; left: -20px; transform: rotate(-30deg);"></div>
-                <div class="tape"
-                    style="width: 110px; top: auto; left: auto; bottom: 15px; right: -35px; transform: rotate(40deg);">
+                <div class="tape hero-tape-1">
+                </div>
+                <div class="tape hero-tape-2">
                 </div>
                 <!-- <div class="photo-placeholder"
                     style="width: 100%; background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(234,205,227,0.8) 100%);">
@@ -155,7 +156,9 @@
 
         <div class="text-content">
             <div class="subtitle" style="color: #b36b85;">A SONG FOR THIS MOMENT</div>
-            <h2 class="serif-font audio-title">Mời bạn nghe<br>một giai điệu<br>mình rất yêu<br>thích</h2>
+            <h2 class="serif-font"
+                style="font-size: 3rem; color: var(--primary-color); margin-top: 0; margin-bottom: 50px; font-weight: normal; letter-spacing: .5px;">
+                Mời bạn nghe<br>một giai điệu<br>mình rất yêu<br>thích</h2>
             <p class="desc" style="max-width: 80%;">Một bài hát nhỏ cho ngày thật đặc biệt — hãy bật nhạc rồi tiếp tục
                 xem thiệp cùng mình nhé.</p>
             <button class="btn" id="play-btn-1"
@@ -212,7 +215,7 @@
 
         <div class="details-grid">
             <div class="detail-card">
-                <div class="icon">30</div>
+                <div class="icon" style="font-size: 2rem;">📅</div>
                 <div>
                     <div class="subtitle" style="color: var(--primary-color); font-size: 0.6rem;">CHỦ NHẬT • THÁNG 08
                     </div>
@@ -231,7 +234,7 @@
             </div>
             <div class="detail-card full-width">
                 <div style="display: flex; gap: 20px; align-items: center;">
-                    <div class="icon" style="font-size: 1.5rem;">⌖</div>
+                    <div class="icon" style="font-size: 2rem;">🗺️</div>
                     <div>
                         <div class="subtitle" style="color: var(--primary-color); font-size: 0.6rem;">ĐỊA ĐIỂM DỰ KIẾN
                         </div>
@@ -240,9 +243,10 @@
                             sẽ được cập nhật sau</p>
                     </div>
                 </div>
-                <button
-                    style="background: transparent; border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; font-family: inherit; font-size: 0.8rem; cursor: pointer; color: var(--text-gray);">Xem
-                    bản đồ ↗</button>
+                <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+T%C3%A2n+T%E1%BA%A1o/@10.7923338,106.4394683,17z/data=!3m1!4b1!4m6!3m5!1s0x310ad3f703fc2821:0xd03984a57f051ab8!8m2!3d10.7923285!4d106.4420432!16s%2Fm%2F0h97lk2?entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    style="background: transparent; border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; font-family: inherit; font-size: 0.8rem; cursor: pointer; color: var(--text-gray); text-decoration: none; display: inline-block;">Xem
+                    bản đồ ↗</a>
             </div>
         </div>
         <!-- <div style="margin-top: 30px;">
@@ -253,9 +257,8 @@
     </section>
 
     <!-- Memories Section -->
-    <section id="memories"
+    <!-- <section id="memories"
         style="min-height: 60vh; background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2); position: relative; padding: 60px 0; overflow: hidden;">
-        <!-- Soft Background Glows -->
         <div
             style="position: absolute; top: 10%; left: 30%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,228,233,0.5) 0%, rgba(253,250,249,0) 70%); z-index: 1; border-radius: 50%; pointer-events: none;">
         </div>
@@ -263,7 +266,7 @@
         <div class="container section-grid" style="position: relative; z-index: 2;">
             <div class="text-content">
                 <div class="subtitle" style="color: #b36b85;">Dear my favorite people</div>
-                <h2 class="serif-font" style="font-size: 4rem; line-height: 1; margin-bottom: 20px;">Thanh xuân
+                <h2 class="serif-font" style="margin-bottom: 20px;">Thanh xuân
                     sẽ<br>đẹp hơn khi có<br>bạn trong khung<br>hình.</h2>
                 <p class="desc">Cảm ơn bạn vì đã xuất hiện trong một phần hành trình của mình — dù là một đoạn thật dài
                     hay
@@ -275,14 +278,12 @@
                     sẻ thiệp ♡</button>
             </div>
             <div class="memories-photos">
-                <!-- Polaroid 1 -->
                 <div class="polaroid memory-polaroid-1">
                     <div class="tape"
                         style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg);"></div>
                     <div class="photo-placeholder"></div>
                     <div class="caption">your photo</div>
                 </div>
-                <!-- Polaroid 2 -->
                 <div class="polaroid memory-polaroid-2">
                     <div class="tape"
                         style="width: 70px; top: -10px; left: 50%; transform: translateX(-50%) rotate(3deg);"></div>
@@ -291,7 +292,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer>
@@ -307,7 +308,7 @@
     </div>
 
     <!-- Audio Element -->
-    <audio id="bg-music" src="./22-taylor-swift.mp3" loop preload="auto"></audio>
+    <audio id="bg-music" src="./22-taylor-swift.m4a" loop preload="auto"></audio>
 
     <!-- Script for Countdown -->
     <script src="./script.js"></script>

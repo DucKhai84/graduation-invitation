@@ -113,9 +113,10 @@
             display: inline-block;
         }
 
-        .text-content h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        section h2 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            font-weight: normal;
         }
 
         .text-content .desc {
@@ -192,6 +193,22 @@
             transform: translateX(-50%) rotate(-2deg);
         }
 
+        .hero-tape-1 {
+            width: 120px;
+            top: -5px;
+            left: -35px;
+            transform: rotate(-30deg);
+        }
+
+        .hero-tape-2 {
+            width: 110px;
+            top: auto;
+            left: auto;
+            bottom: 15px;
+            right: -35px;
+            transform: rotate(40deg);
+        }
+
         /* Invitation Card Section */
         .invite-section {
             background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
@@ -220,10 +237,7 @@
             border: 1px solid rgba(106, 57, 82, 0.2);
         }
 
-        .invite-card h2 {
-            font-size: 2.5rem;
-            margin: 20px 0;
-        }
+
 
         /* Countdown Section */
         .countdown-section {
@@ -464,6 +478,21 @@
         /* Responsive Design */
         /* Tablet & Laptop (1024px and below) */
         @media (max-width: 1024px) {
+            .hide-on-mobile {
+                display: none !important;
+            }
+
+            .hero-tape-1 {
+                left: -15px;
+                top: -5px;
+                width: 100px;
+            }
+
+            .hero-tape-2 {
+                right: -15px;
+                width: 100px;
+            }
+
             .container {
                 padding: 40px 5%;
             }
@@ -481,9 +510,7 @@
                 margin-left: 50px;
             }
 
-            .text-content h2 {
-                font-size: 2.5rem;
-            }
+
 
             nav {
                 display: none;

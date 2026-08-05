@@ -1,4 +1,4 @@
-        const countDownDate = new Date("Aug 30, 2026 08:00:00").getTime();
+        const countDownDate = new Date("Aug 9, 2026 08:00:00").getTime();
 
         const x = setInterval(function () {
             const now = new Date().getTime();
@@ -37,8 +37,8 @@
         let hasStarted = false; // Theo dõi xem nhạc đã được bật lần nào chưa
 
         // Cài đặt thời gian bắt đầu điệp khúc (tính bằng giây). 
-        // 64 giây = 1 phút 04 giây. Bạn có thể thay đổi số này cho khớp với file mp3 của bạn.
-        const chorusStartTime = 64;
+        // 41 giây. Bạn có thể thay đổi số này cho khớp với file mp3 của bạn.
+        const chorusStartTime = 41;
 
         // Start vinyl as paused until music plays
         if (vinyl) vinyl.style.animationPlayState = 'paused';

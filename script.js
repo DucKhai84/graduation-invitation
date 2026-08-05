@@ -77,10 +77,18 @@
                     // Start vinyl spin
                     if (vinyl) vinyl.style.animationPlayState = 'running';
                 }).catch(error => {
-                    alert("Không tìm thấy file nhạc! Bạn vui lòng tải một file nhạc mp3, đổi tên thành '22-taylor-swift.mp3' và để chung thư mục với file index.html nhé.");
+                    if (error.name === 'NotAllowedError') {
+                        // Trình duyệt chặn tự động phát, chờ người dùng click
+                        hasStarted = false;
+                    } else {
+                        console.error("Lỗi phát nhạc:", error);
+                    }
                 });
             }
         }
 
         if (playBtn1) playBtn1.addEventListener("click", toggleMusic);
         if (floatingBtn) floatingBtn.addEventListener("click", toggleMusic);
+
+        // Tự động thử phát nhạc khi tải trang
+        toggleMusic();

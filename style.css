@@ -154,6 +154,7 @@
 
         /* Polaroids */
         .polaroid {
+            width: 100%;
             background: var(--white);
             padding: 15px 15px 50px 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -163,6 +164,7 @@
         }
 
         .polaroid .photo-placeholder {
+            width: 100%;
             background: linear-gradient(135deg, #e3d5e8, #f4e4e9);
             height: 450px;
             /* Taller height for a better visual balance */
@@ -348,38 +350,43 @@
 
         /* Memories Section */
         .memories-photos {
-            position: relative;
-            height: 450px;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .memory-polaroid-1 {
-            position: absolute;
             transform: rotate(-6deg);
             z-index: 1;
-            margin-right: 120px;
-            margin-bottom: 40px;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .memory-polaroid-2 {
-            position: absolute;
-            transform: rotate(8deg);
+            transform: rotate(4deg);
             z-index: 2;
-            margin-left: 100px;
-            margin-top: 60px;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .memory-polaroid-1:hover {
-            transform: rotate(-2deg) scale(1.05);
-            z-index: 10;
+        .memory-polaroid-3 {
+            transform: rotate(-3deg);
+            z-index: 3;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .memory-polaroid-2:hover {
-            transform: rotate(3deg) scale(1.05);
+        .memory-polaroid-4 {
+            transform: rotate(5deg);
+            z-index: 4;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .memory-polaroid-1:hover,
+        .memory-polaroid-2:hover,
+        .memory-polaroid-3:hover,
+        .memory-polaroid-4:hover {
+            transform: scale(1.05) rotate(0deg);
             z-index: 10;
         }
 
@@ -604,21 +611,22 @@
 
             /* Memories Section */
             .memories-photos {
-                height: auto;
-                flex-direction: column;
-                gap: 40px;
+                grid-template-columns: 1fr;
+                gap: 30px;
                 margin-top: 20px;
             }
 
             .memory-polaroid-1,
-            .memory-polaroid-2 {
-                position: relative;
-                margin: 0;
+            .memory-polaroid-2,
+            .memory-polaroid-3,
+            .memory-polaroid-4 {
                 transform: rotate(0);
             }
 
             .memory-polaroid-1:hover,
-            .memory-polaroid-2:hover {
+            .memory-polaroid-2:hover,
+            .memory-polaroid-3:hover,
+            .memory-polaroid-4:hover {
                 transform: scale(1.02);
             }
 

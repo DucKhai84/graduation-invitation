@@ -36,6 +36,7 @@
 
         let isPlaying = false;
         let hasStarted = false; // Theo dõi xem nhạc đã được bật lần nào chưa
+        let autoplayBlocked = false; // Cờ nhận biết trình duyệt chặn tự động phát nhạc
 
         // Cài đặt thời gian bắt đầu điệp khúc (tính bằng giây). 
         // 38 giây. Bạn có thể thay đổi số này cho khớp với file mp3 của bạn.
@@ -67,6 +68,7 @@
 
                 audio.play().then(() => {
                     isPlaying = true;
+                    autoplayBlocked = false; // Hủy cờ nếu phát thành công
 
                     // Update buttons to "Pause" state
                     if (playIcon1) playIcon1.innerText = "⏸";
@@ -81,6 +83,7 @@
                     if (error.name === 'NotAllowedError') {
                         // Trình duyệt chặn tự động phát, chờ người dùng click
                         hasStarted = false;
+                        autoplayBlocked = true; // Bật cờ bị chặn
                     } else {
                         console.error("Lỗi phát nhạc:", error);
                     }
@@ -103,6 +106,7 @@
                 }
                 audio.play().then(() => {
                     isPlaying = true;
+                    autoplayBlocked = false; // Hủy cờ nếu phát thành công
                     if (playIcon1) playIcon1.innerText = "⏸";
                     if (playText1) playText1.innerText = "Tạm dừng";
                     if (floatingIcon) floatingIcon.innerText = "⏸";
@@ -115,6 +119,7 @@
                     document.removeEventListener('scroll', forcePlayMusic);
                 }).catch(error => {
                     hasStarted = false;
+                    autoplayBlocked = true; // Bật cờ bị chặn
                 });
             }
         }

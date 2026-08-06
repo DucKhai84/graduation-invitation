@@ -126,3 +126,19 @@
 
         // Tự động thử phát nhạc khi tải trang
         toggleMusic();
+
+        // Slideshow logic cho Memories Section
+        const frames = document.querySelectorAll('.slideshow-frame');
+        if (frames.length > 0) {
+            let currentFrame = 0;
+            setInterval(() => {
+                // Fade out current frame
+                frames[currentFrame].style.opacity = '0';
+                
+                // Move to next frame
+                currentFrame = (currentFrame + 1) % frames.length;
+                
+                // Fade in next frame
+                frames[currentFrame].style.opacity = '1';
+            }, 3000);
+        }

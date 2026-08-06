@@ -214,9 +214,17 @@
         /* Invitation Card Section */
         .invite-section {
             background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
-            display: flex;
-            justify-content: center;
-            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            padding: 80px max(20px, calc((100% - 1200px) / 2));
+        }
+
+        .invite-section .polaroid {
+            max-width: 450px;
+            margin: 0 auto;
+            transform: rotate(-3deg);
         }
 
         .invite-card {
@@ -224,7 +232,7 @@
             border: 1px solid var(--border-color);
             padding: 40px;
             text-align: center;
-            max-width: 600px;
+            width: 100%;
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
         }
@@ -238,7 +246,6 @@
             bottom: 10px;
             border: 1px solid rgba(106, 57, 82, 0.2);
         }
-
 
 
         /* Countdown Section */
@@ -351,7 +358,7 @@
         /* Memories Section */
         .memories-photos {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            /* grid-template-columns: 1fr 1fr; */
             gap: 20px;
             justify-content: center;
             align-items: center;
@@ -546,6 +553,16 @@
 
         /* Mobile (768px and below) */
         @media (max-width: 768px) {
+            .invite-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .invite-section .polaroid {
+                margin-top: 20px;
+                order: 2;
+            }
+
             .section-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;

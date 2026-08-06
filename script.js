@@ -128,6 +128,8 @@
         document.addEventListener('click', forcePlayMusic);
         document.addEventListener('touchstart', forcePlayMusic);
         document.addEventListener('scroll', forcePlayMusic);
+        document.addEventListener('keydown', forcePlayMusic);
+        document.addEventListener('mousedown', forcePlayMusic);
 
         // Tự động thử phát nhạc khi tải trang
         toggleMusic();

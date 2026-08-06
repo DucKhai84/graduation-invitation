@@ -23,6 +23,7 @@
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         }, 1000);
+        
         const audio = document.getElementById("bg-music");
         const playBtn1 = document.getElementById("play-btn-1");
         const playIcon1 = document.getElementById("play-icon-1");
@@ -89,6 +90,39 @@
 
         if (playBtn1) playBtn1.addEventListener("click", toggleMusic);
         if (floatingBtn) floatingBtn.addEventListener("click", toggleMusic);
+
+        function forcePlayMusic(e) {
+            // Bỏ qua nếu người dùng bấm thẳng vào các nút bật nhạc (vì nút đã có hàm riêng)
+            if (e && (e.target.closest('#play-btn-1') || e.target.closest('#floating-music-btn'))) {
+                return;
+            }
+            if (!isPlaying) {
+                if (!hasStarted) {
+                    audio.currentTime = chorusStartTime;
+                    hasStarted = true;
+                }
+                audio.play().then(() => {
+                    isPlaying = true;
+                    if (playIcon1) playIcon1.innerText = "⏸";
+                    if (playText1) playText1.innerText = "Tạm dừng";
+                    if (floatingIcon) floatingIcon.innerText = "⏸";
+                    if (floatingText) floatingText.innerText = "Tắt nhạc";
+                    if (vinyl) vinyl.style.animationPlayState = 'running';
+                    
+                    // Xóa sự kiện sau khi nhạc đã phát thành công
+                    document.removeEventListener('click', forcePlayMusic);
+                    document.removeEventListener('touchstart', forcePlayMusic);
+                    document.removeEventListener('scroll', forcePlayMusic);
+                }).catch(error => {
+                    hasStarted = false;
+                });
+            }
+        }
+
+        // Bắt sự kiện chạm/click/cuộn bất kỳ đâu trên trang để lách luật autoplay
+        document.addEventListener('click', forcePlayMusic);
+        document.addEventListener('touchstart', forcePlayMusic);
+        document.addEventListener('scroll', forcePlayMusic);
 
         // Tự động thử phát nhạc khi tải trang
         toggleMusic();

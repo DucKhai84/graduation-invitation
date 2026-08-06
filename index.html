@@ -105,43 +105,48 @@
 
     <!-- Countdown Section -->
     <section class="countdown-section">
-        <div
-            style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: #b36b85; margin-bottom: 10px;">
-            Save the date</div>
-        <h2 class="serif-font"
-            style="font-size: 3rem; color: var(--primary-color); margin-top: 0; margin-bottom: 50px; font-weight: normal; letter-spacing: 1px;">
-            Một ngày thật đẹp đang đến gần</h2>
+        <div class="countdown-content">
+            <div
+                style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: #b36b85; margin-bottom: 10px;">
+                Save the date</div>
+            <h2 class="serif-font"
+                style="font-size: 3rem; color: var(--primary-color); margin-top: 0; margin-bottom: 30px; font-weight: normal; letter-spacing: 1px;">
+                Một ngày thật đẹp đang đến gần</h2>
 
-        <div class="countdown-container">
-            <div class="countdown-item">
-                <span class="number serif-font" id="days">28</span>
-                <span class="label">NGÀY</span>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="number serif-font" id="days">28</span>
+                    <span class="label">NGÀY</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number serif-font" id="hours">09</span>
+                    <span class="label">GIỜ</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number serif-font" id="minutes">50</span>
+                    <span class="label">PHÚT</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number serif-font" id="seconds">07</span>
+                    <span class="label">GIÂY</span>
+                </div>
             </div>
-            <div class="countdown-item">
-                <span class="number serif-font" id="hours">09</span>
-                <span class="label">GIỜ</span>
-            </div>
-            <div class="countdown-item">
-                <span class="number serif-font" id="minutes">50</span>
-                <span class="label">PHÚT</span>
-            </div>
-            <div class="countdown-item">
-                <span class="number serif-font" id="seconds">07</span>
-                <span class="label">GIÂY</span>
+
+            <div
+                style="font-size: 0.65rem; color: var(--text-gray); margin-top: 50px; letter-spacing: 2px; text-transform: uppercase;">
+                NGÀY DỰ KIẾN - THÔNG TIN CHÍNH THỨC SẼ ĐƯỢC CẬP NHẬT
             </div>
         </div>
 
-        <div class="polaroid"
-            style="position: relative; z-index: 5; padding: 15px 15px 40px 15px; width: 100%; max-width: 320px; margin: 40px auto 0 auto; transform: rotate(2deg);">
-            <div class="tape hero-tape-1"></div>
-            <div class="tape hero-tape-2"></div>
-            <img src="./assets/IMG_1510.jpg" alt="Ảnh tốt nghiệp"
-                style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
-        </div>
-
-        <div
-            style="font-size: 0.65rem; color: var(--text-gray); margin-top: 50px; letter-spacing: 2px; text-transform: uppercase;">
-            NGÀY DỰ KIẾN - THÔNG TIN CHÍNH THỨC SẼ ĐƯỢC CẬP NHẬT
+        <div class="polaroid-wrapper" style="display: flex; justify-content: center;">
+            <div class="polaroid polaroid-elegant"
+                style="position: relative; z-index: 5; width: 100%; max-width: 450px; transform: rotate(2deg);">
+                <img src="./assets/IMG_1510.jpg" alt="Ảnh tốt nghiệp"
+                    style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
+                <div
+                    style="font-family: 'Playfair Display', serif; font-size: 0.8rem; font-style: italic; color: #a9758d; margin-top: 10px; text-align: center;">
+                    August 9th, 2026</div>
+            </div>
         </div>
     </section>
 
@@ -214,12 +219,12 @@
             <p class="serif-font" style="margin-top: 20px; font-style: italic; font-size: 1.2rem; color: #a9758d;">—
                 Trúc Phương —</p>
         </div>
-        <div class="polaroid"
-            style="position: relative; z-index: 5; padding: 15px 15px 40px 15px; width: 100%; opacity: 1; transition: opacity 0.8s ease-in-out; transform: rotate(-5deg);">
-            <div class="tape hero-tape-1"></div>
-            <div class="tape hero-tape-2"></div>
+        <div class="polaroid polaroid-scrapbook"
+            style="position: relative; z-index: 5; width: 100%; max-width: 450px; opacity: 1; transition: opacity 0.8s ease-in-out; transform: rotate(-5deg);">
+            <div class="washi-tape"></div>
             <img src="./assets/IMG_1509.jpg" alt="Ảnh tốt nghiệp"
                 style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
+            <div style="position: absolute; bottom: 10px; right: 15px; font-size: 1.5rem; color: #d6b3c1;">✿</div>
         </div>
     </section>
 
@@ -293,34 +298,38 @@
                     sẻ thiệp ♡</button> -->
             </div>
             <div class="memories-photos"
-                style="position: relative; width: 100%; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1.2;">
-                <div class="polaroid slideshow-frame"
-                    style="position: absolute; top: 0; left: 0; z-index: 5; padding: 15px 15px 40px 15px; width: 100%; opacity: 1; transition: opacity 0.8s ease-in-out; transform: rotate(-1deg);">
-                    <div class="tape hero-tape-1"></div>
-                    <div class="tape hero-tape-2"></div>
+                style="position: relative; width: 100%; max-width: 450px; margin: 0 auto; aspect-ratio: 1 / 1.2;">
+                <div class="polaroid polaroid-instax slideshow-frame"
+                    style="position: absolute; top: 0; left: 0; z-index: 5; width: 100%; opacity: 1; transition: opacity 0.8s ease-in-out; transform: rotate(-1deg);">
                     <img src="./assets/IMG_1509.jpg" alt="Ảnh tốt nghiệp"
                         style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
+                    <div
+                        style="font-size: 0.8rem; color: #a9758d; margin-top: 8px; text-align: center; font-family: cursive;">
+                        sweet memories ♡</div>
                 </div>
-                <div class="polaroid slideshow-frame"
-                    style="position: absolute; top: 0; left: 0; z-index: 5; padding: 15px 15px 40px 15px; width: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; transform: rotate(2deg);">
-                    <div class="tape hero-tape-1"></div>
-                    <div class="tape hero-tape-2"></div>
+                <div class="polaroid polaroid-instax slideshow-frame"
+                    style="position: absolute; top: 0; left: 0; z-index: 5; width: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; transform: rotate(2deg);">
                     <img src="./assets/IMG_1510.JPG" alt="Ảnh tốt nghiệp"
                         style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
+                    <div
+                        style="font-size: 0.8rem; color: #a9758d; margin-top: 8px; text-align: center; font-family: cursive;">
+                        2026 graduation!</div>
                 </div>
-                <div class="polaroid slideshow-frame"
-                    style="position: absolute; top: 0; left: 0; z-index: 5; padding: 15px 15px 40px 15px; width: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; transform: rotate(-3deg);">
-                    <div class="tape hero-tape-1"></div>
-                    <div class="tape hero-tape-2"></div>
+                <div class="polaroid polaroid-instax slideshow-frame"
+                    style="position: absolute; top: 0; left: 0; z-index: 5; width: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; transform: rotate(-3deg);">
                     <img src="./assets/IMG_1508.png" alt="Ảnh tốt nghiệp"
                         style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
+                    <div
+                        style="font-size: 0.8rem; color: #a9758d; margin-top: 8px; text-align: center; font-family: cursive;">
+                        with you ✨</div>
                 </div>
-                <div class="polaroid slideshow-frame"
-                    style="position: absolute; top: 0; left: 0; z-index: 5; padding: 15px 15px 40px 15px; width: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; transform: rotate(1deg);">
-                    <div class="tape hero-tape-1"></div>
-                    <div class="tape hero-tape-2"></div>
+                <div class="polaroid polaroid-instax slideshow-frame"
+                    style="position: absolute; top: 0; left: 0; z-index: 5; width: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; transform: rotate(1deg);">
                     <img src="./assets/IMG_000500_0.jpg" alt="Ảnh tốt nghiệp"
                         style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1;" />
+                    <div
+                        style="font-size: 0.8rem; color: #a9758d; margin-top: 8px; text-align: center; font-family: cursive;">
+                        thank you 🌸</div>
                 </div>
             </div>
         </div>

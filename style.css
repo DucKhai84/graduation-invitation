@@ -185,6 +185,67 @@
             font-style: italic;
         }
 
+        /* Elegant Polaroid (Countdown) */
+        .polaroid-elegant {
+            padding: 10px;
+            background: #fffafa;
+            border: 1px solid #d6b3c1;
+            box-shadow: 0 15px 40px rgba(179, 107, 133, 0.15);
+            border-radius: 2px;
+        }
+
+        .polaroid-elegant::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px dashed #e3d5e8;
+            pointer-events: none;
+        }
+
+        /* Scrapbook Polaroid (Invitation) */
+        .polaroid-scrapbook {
+            background-color: #fcf8fa;
+            padding: 15px 15px 45px 15px;
+            border-radius: 0;
+            box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .polaroid-scrapbook img {
+            border: 1px solid #eee;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Scrapbook washi tape */
+        .washi-tape {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(90deg, rgba(234, 205, 227, 0.7) 0%, rgba(214, 179, 193, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            z-index: 10;
+        }
+
+        /* Instax Polaroid (Memories) */
+        .polaroid-instax {
+            width: 450px;
+            background: #fcfbfb;
+            padding: 15px 15px 60px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .polaroid-instax img {
+            border-radius: 6px;
+        }
+
         .tape {
             position: absolute;
             width: 80px;
@@ -251,12 +312,15 @@
         /* Countdown Section */
         .countdown-section {
             background: linear-gradient(135deg, #f4e9f2, #fbf6fa, #f4e9f2);
-            text-align: center;
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
+            padding: 80px max(20px, calc((100% - 1200px) / 2));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             align-items: center;
-            justify-content: center;
+        }
+
+        .countdown-content {
+            text-align: center;
         }
 
         .countdown-container {
@@ -553,6 +617,8 @@
 
         /* Mobile (768px and below) */
         @media (max-width: 768px) {
+
+            .countdown-section,
             .invite-section {
                 grid-template-columns: 1fr;
                 gap: 40px;

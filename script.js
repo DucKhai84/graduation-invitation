@@ -38,8 +38,8 @@
         let hasStarted = false; // Theo dõi xem nhạc đã được bật lần nào chưa
 
         // Cài đặt thời gian bắt đầu điệp khúc (tính bằng giây). 
-        // 41 giây. Bạn có thể thay đổi số này cho khớp với file mp3 của bạn.
-        const chorusStartTime = 41;
+        // 38 giây. Bạn có thể thay đổi số này cho khớp với file mp3 của bạn.
+        const chorusStartTime = 38;
 
         // Start vinyl as paused until music plays
         if (vinyl) vinyl.style.animationPlayState = 'paused';
